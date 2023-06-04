@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_code/main.dart';
 import 'package:project_code/theme.dart';
+import 'package:project_code/ui/screens/sign_in_up_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -72,24 +73,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                       SizedBox(height: 5),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Icon(
-                            Icons.logout,
-                            color: primaryColor2,
-                            size: 16,
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            'Log Out',
-                            style: GoogleFonts.poppins(
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) {
+                              return const SignInUpScreen();
+                            },
+                          ));
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.logout,
                               color: primaryColor2,
+                              size: 16,
                             ),
-                          )
-                        ],
+                            SizedBox(width: 5),
+                            Text(
+                              'Log Out',
+                              style: GoogleFonts.poppins(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: primaryColor2,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                       SizedBox(height: 15),
                     ],
